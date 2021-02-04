@@ -6,7 +6,7 @@
 #container{
     width: 970px;
     min-height: 1000px;
-    background-color: rgb(6, 54, 6);
+    background-image: rgb(6, 54, 6);
 }
 
 #playSpace{
