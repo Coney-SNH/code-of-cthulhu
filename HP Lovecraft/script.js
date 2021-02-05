@@ -46,7 +46,7 @@ function addListeners(){
 
 
 let score=0;
-let timer=300;
+let timer=1200;
 let letterstotal=50;
 let letter=letterstotal;
 
@@ -56,7 +56,7 @@ let interval=Math.floor(timer/letter);
 
 function Shuffle(){
     letter=letterstotal;
-    timer=300;
+    timer=1200;
     interval=Math.floor(timer/letterstotal)
     $('.hiddentext').hide();
     firstclicked=false;
@@ -239,11 +239,12 @@ function double(current){
                 // console.log("they are the same");
                 score++;
                 ScoreUpdate();
-                timer++;
+                timer+=30;
                 // TimerUpdate();
                 // $(current).fadeOut(1000);
                 // $(lastClicked).fadeOut(1000);
                 if(score>11){
+                    firstclicked=false;
                     $('.card').fadeOut();
                     $('#playSpace').html('<p id="WinText">And into the eternal slumber he shall remain.</p>');
                 }
@@ -271,6 +272,7 @@ function double(current){
                 //         $('.card').fadeOut();
                 //         $('#playSpace').html('<p id="LoseText">Sorry, you have angered the great Cthulhu!</p><img src="Monsters/cthulhu/cthulhu2.jpg">');
                 //     }, 2000)
+                timer-=20;
                 setTimeout(function(){
                     $(screwtimeout).attr('src', 'Cardback2.jpg');
                     $(asycncausesissues).attr('src', 'Cardback2.jpg');
@@ -287,9 +289,8 @@ function double(current){
 
 function timerUpdate(){
     $('#timer').text(timer);
-    if(letter*interval>timer){
+    for(;letter*interval>timer;letter--){
         let element=".timer"+(letterstotal-letter);
-        letter--;
         $(element).show();
     }
 }
@@ -297,8 +298,10 @@ function timerUpdate(){
 setInterval(() => {
     if(firstclicked&&timer>-1)
         timer--;
+        timerUpdate();
     console.log(timer);
-    if(timer===0){
+    if(timer<0&&firstclicked){
+        firstclicked=false;
         $('.card').addClass('Back'); 
         $('img').attr('src','Monsters/cthulhu/Cthulhu.jpg');
         setTimeout(() => {

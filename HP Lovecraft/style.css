@@ -56,7 +56,7 @@ div p {
 }
 
 #scoreboard{
-    text-align: right;
+    text-align: center;
     font-size: 24pt;
     padding: 10px 40px 10px 10px;
     flex-basis: 20%;
