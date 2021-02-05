@@ -288,10 +288,13 @@ function double(current){
 }
 
 function timerUpdate(){
-    $('#timer').text(timer);
+    // $('#timer').text(timer);
     for(;letter*interval>timer;letter--){
-        let element=".timer"+(letterstotal-letter);
-        $(element).show();
+        let element=".timershow"+(letterstotal-letter);
+        let elementhide=".timerhide"+(letterstotal-letter);
+        $(elementhide).fadeOut(1000);
+        $(element).fadeIn(1000);
+
         //additional things to impliment. Time the fade in of each letter so it almost feels like they fade in one after another
     }
     //impliment a way to have letters fade out if timer is higher again, maybe with some buffer room, like two letters or so
