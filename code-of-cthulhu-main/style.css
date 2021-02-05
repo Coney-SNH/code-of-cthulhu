@@ -1,0 +1,260 @@
+*{
+    margin: 0px;
+    border: 0px;
+    /* outline:1px dotted red; */
+}
+html body {
+    box-sizing: content-box;
+}
+
+/* body{
+    background: url(Monsters/cthulhu/cthulhu2.jpg) fixed;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+} */
+
+body { 
+    background: url(backgroundwallpaper.jpg) fixed;
+    font-family: 'Metal Mania', cursive;
+	font-size: 16px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    display:flex;
+}
+
+#container{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+    padding-top: 50px;
+    flex-grow: 4;
+}
+
+#playSpace{
+    padding: 0px 100px 100px 220px;
+    display:inline-block;
+    width: 660px;
+    height: 860px;
+    flex-basis: 80%;
+}
+
+#playsplace p {
+    margin: 0px;
+    padding: 0px;
+}
+
+#gamename {
+    color: #97BDF0;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
+}
+
+div p {
+    border-bottom: 2px solid #696969;
+    padding: 2px;
+    margin: 2px;
+    color:#f4d8b3;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
+}
+#score {
+    color: #A7231A;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
+    /* color: #4d6d8a; */
+}
+
+.starthide {
+    color: #97BDF0;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
+}
+
+#scoreboard{
+    text-align: center;
+    font-size: 30pt;
+    padding: 10px 40px 10px 10px;
+    flex-basis: 35%;
+}
+
+#gamescript {
+    color: #E4E4E4;
+}
+
+
+.card{
+    /* border: 4px transparent whitesmoke; */
+    max-width: 100px;
+    height: 170px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+    padding:4px;
+    object-fit: cover;
+}
+
+.Back{
+    background-color: whitesmoke;
+}
+
+.btn-slice{
+    padding: 1.2rem 2.5rem;
+    background-color: #46473E;
+    color: #ffffff;
+    border-radius: 0rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    position: relative;
+    
+    -webkit-transition: all 1000ms cubic-bezier(0.890, 0, 0.140, 1);
+    -webkit-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    -moz-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    -o-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+
+    -webkit-transition-timing-function: cubic-bezier(0.890, 0, 0.140, 1); 
+    -webkit-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    -moz-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    -o-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+}
+
+.btn-slice .top  {
+    position: relative;
+    height: 6px;
+    overflow: hidden;
+    top: 0;
+    -webkit-transition: all 300ms cubic-bezier(1.000, 0, 0.025, 1); 
+    -webkit-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    -moz-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    -o-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+
+    -webkit-transition-timing-function: cubic-bezier(1.000, 0, 0.025, 1); 
+    -webkit-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    -moz-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    -o-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    
+    -webkit-transition-delay:0.35s;     
+    -moz-transition-delay:0.35s; 
+    -ms-transition-delay:0.35s;     
+    -o-transition-delay:0.35s;     
+    transition-delay:0.35s;
+}
+
+.btn-slice .bottom  {
+    position: relative;
+    height: 6px;
+    overflow: hidden;
+    bottom: 0;
+    -webkit-transition: all 300ms cubic-bezier(1.000, 0, 0.025, 1);
+    -webkit-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    -moz-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    -o-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+
+    -webkit-transition-timing-function: cubic-bezier(1.000, 0, 0.025, 1); 
+    -webkit-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    -moz-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    -o-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); 
+    transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    
+    -webkit-transition-delay:0.35s;     
+    -moz-transition-delay:0.35s; 
+    -ms-transition-delay:0.35s;     
+    -o-transition-delay:0.35s;     
+    transition-delay:0.35s;
+}
+
+.btn-slice .bottom span {
+    top: -6px;
+    position: absolute;
+    left: 0;
+}
+
+.btn-slice:hover .top {
+    top: -5px;
+    -webkit-transition-delay:0.35s;     
+    -moz-transition-delay:0.35s; 
+    -ms-transition-delay:0.35s;     
+    -o-transition-delay:0.35s;     
+    transition-delay:0.35s; 
+}
+
+.btn-slice:hover .bottom {
+    bottom: -5px;
+    -webkit-transition-delay:0.35s;     
+    -moz-transition-delay:0.35s; 
+    -ms-transition-delay:0.35s;     
+    -o-transition-delay:0.35s;     
+    transition-delay:0.35s; 
+}
+.btn-slice:hover, .btn-slice:focus, .btn-slice:active {
+    margin-left: 10px;
+}
+.btn-slice:before{
+    content: '';
+    height: 1px;
+    width: 60px;
+    background-color: #ffffff;
+    position: absolute;
+    margin-top: 6px;
+    right: -35px;
+    
+    -webkit-transition: all 1000ms cubic-bezier(0.890, 0, 0.140, 1); 
+    -webkit-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    -moz-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    -o-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+
+    -webkit-transition-timing-function: cubic-bezier(0.890, 0, 0.140, 1); 
+    -webkit-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    -moz-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    -o-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); 
+    transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+}
+.btn-slice:hover:before{
+    width: 130%;
+}
+
+#WinText{
+    margin-top: 300px;
+    color:#f4d8b3;
+    font-size: 36pt;
+    text-align: center;
+}
+
+#LoseText{
+    margin-top: 100px;
+    margin-left: 132px;
+    color: #A7231A;
+    font-size: 36pt;
+    text-align: center;
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black; */
+}
+.Score{
+    margin-bottom: 10px;
+}
+.starthide{
+    display: none;
+}
+.timer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* .endhide{
+    color: red;
+}
+.starthide{
+    color: aqua;
+} */
