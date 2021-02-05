@@ -292,7 +292,11 @@ function timerUpdate(){
     for(;letter*interval>timer;letter--){
         let element=".timer"+(letterstotal-letter);
         $(element).show();
+        //additional things to impliment. Time the fade in of each letter so it almost feels like they fade in one after another
     }
+    //impliment a way to have letters fade out if timer is higher again, maybe with some buffer room, like two letters or so
+    //add in another string to the timer to see if you could get it more accurate?
+    //Also, formulas for calculating interval currently only works really well with divisors of the timer. There may be a way to have it work with a better range of nums using some sort of rounding?
 }
 
 setInterval(() => {
