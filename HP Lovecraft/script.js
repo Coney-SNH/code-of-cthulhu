@@ -238,6 +238,7 @@ function double(current){
                 // $(current).fadeOut(1000);
                 // $(lastClicked).fadeOut(1000);
                 if(score>11){
+                    firstclicked=false;
                     $('.card').fadeOut();
                     $('#playSpace').html('<p id="WinText">And into the eternal slumber he shall remain.</p>');
                 }
@@ -289,12 +290,15 @@ setInterval(() => {
         timer--;
         timerUpdate();
     console.log(timer);
-    if(timer===0){
+    if(timer<0){
         $('.card').addClass('Back'); 
-        $('img').attr('src','Monsters/cthulhu/Cthulhu.jpg');
-        setTimeout(() => {
-            Cthulhu();
-        }, 2000);
+        if(firstclicked){
+            firstclicked=false;
+            $('img').attr('src','Monsters/cthulhu/Cthulhu.jpg');
+            setTimeout(() => {
+                Cthulhu();
+            }, 2000);
+        }
     }
     setTimeout(() => {
     }, 500);
