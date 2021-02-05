@@ -47,12 +47,19 @@ function addListeners(){
 
 let score=0;
 let timer=1200;
+let letterstotal=50;
+let letter=letterstotal;
 
 let justClicked;
 let firstclicked=false;
+let interval=Math.floor(timer/letter);
 
 function Shuffle(){
+    letter=letterstotal;
     timer=1200;
+    interval=Math.floor(timer/letterstotal)
+    $('.starthide').hide();
+    $('.endhide').show();
     firstclicked=false;
     lastClicked=null;
     score=0;
@@ -63,6 +70,9 @@ function Shuffle(){
         Deck[index]=Deck[randomIndex];
         Deck[randomIndex]=temp;
     }
+    for(let index=0;index<Deck.length;index++){
+        Deck[index].cardState=0;
+    }
     $('.card').addClass('Back'); 
     $('.card').attr('src','Cardback2.jpg');
 }
@@ -71,127 +81,127 @@ let Deck=[
     {
         name:"Dog",
         src:"Monsters/Base/dog.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Fisherman",
         src:"Monsters/Base/fisherman.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Fishguy",
         src:"Monsters/Base/fishGuy.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Gross Neck Guy",
         src:"Monsters/Base/grossNeck.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Guy with legs",
         src:"Monsters/Base/legs.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"MouthDungeon",
         src:"Monsters/Base/MouthDungeon.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Phallic beast",
         src:"Monsters/Base/phalic.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
-        name:"Squid",
-        src:"Monsters/Base/squidGuy.jpg",
-        // cardState:0,
+        name:"Mouth and Tentacle",
+        src:"Monsters/Base/tentaMouthTacle.jpg",
+        cardState:0,
     },
     {
         name:"Squid Head",
         src:"Monsters/Base/squidHead.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"threeEyes",
         src:"Monsters/Base/threeEyes.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Underwater Statue",
         src:"Monsters/Base/underWater.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Mouth on head",
         src:"Monsters/Base/upMouth.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Cthulhu",
         src:"Monsters/cthulhu/Cthulhu.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Dog",
         src:"Monsters/Base/dog.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Fisherman",
         src:"Monsters/Base/fisherman.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Fishguy",
         src:"Monsters/Base/fishGuy.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Gross Neck Guy",
         src:"Monsters/Base/grossNeck.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Guy with legs",
         src:"Monsters/Base/legs.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"MouthDungeon",
         src:"Monsters/Base/MouthDungeon.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Phallic beast",
         src:"Monsters/Base/phalic.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
-        name:"Squid",
-        src:"Monsters/Base/squidGuy.jpg",
-        // cardState:0,
+        name:"Mouth and Tentacle",
+        src:"Monsters/Base/tentaMouthTacle.jpg",
+        cardState:0,
     },
     {
         name:"Squid Head",
         src:"Monsters/Base/squidHead.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"threeEyes",
         src:"Monsters/Base/threeEyes.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Underwater Statue",
         src:"Monsters/Base/underWater.jpg",
-        // cardState:0,
+        cardState:0,
     },
     {
         name:"Mouth on head",
         src:"Monsters/Base/upMouth.jpg",
-        // cardState:0,
+        cardState:0,
     }
 ]
 
@@ -209,8 +219,9 @@ let screwtimeout,asycncausesissues;
 function Cthulhu(){
     setTimeout(function(){
         $('.card').fadeOut();
-        $('#playSpace').html('<p id="LoseText">Enkindled and renewed, Chtulhu elicits insanity upon you</p><img src="Monsters/cthulhu/cthulhu2.jpg">');
+        $('#playSpace').html('<p id="LoseText">Chtulhu awakens, eliciting insanity within you</p><img src="Monsters/cthulhu/cthulhu2.jpg">');
     }, 2000)
+    // Chtulhu awakens, eliciting insanity within you
 }
 
 function double(current){
@@ -222,7 +233,7 @@ function double(current){
     }
     // console.log('test');
     if(lastClicked===null){
-        // console.log('also a test');
+        // #A7231Asole.log('also a test');
         lastClicked=current;
         // Deck[$(current).attr('pos')].cardState=1;
     }else{
@@ -231,16 +242,20 @@ function double(current){
             // console.log($(lastClicked).attr('pos'));
             if (Deck[$(current).attr('pos')].name === Deck[$(lastClicked).attr('pos')].name){
                 // console.log("they are the same");
-                score++;
-                ScoreUpdate();
-                timer+=30;
+                if(Deck[$(current).attr('pos')].cardState===0){
+                    Deck[$(current).attr('pos')].cardState=1;
+                    Deck[$(lastClicked).attr('pos')].cardState=1;
+                    score++;
+                    ScoreUpdate();
+                    timer+=30;
+                }
                 // TimerUpdate();
                 // $(current).fadeOut(1000);
                 // $(lastClicked).fadeOut(1000);
                 if(score>11){
                     firstclicked=false;
                     $('.card').fadeOut();
-                    $('#playSpace').html('<p id="WinText">And into the eternal slumber he shall remain.</p>');
+                    $('#playSpace').html('<p id="WinText">Having found and removed the legions of Cthulhu.</p><p id="WinText">The world can rest easy for another evening.</p><p id="WinText">Ctlhulhu remains dreaming.</p>');
                 }
                 setTimeout(function(){
                     $(screwtimeout).attr('src', 'Blank.png');
@@ -256,7 +271,7 @@ function double(current){
                 // 
                 // }, 10)
             }
-            else{
+            else if(Deck[$(current).attr('pos')].cardState===0){
                 // $(current).fadeOut(1000);
                 // $(lastClicked).fadeOut(1000);
                 // timer--;
@@ -266,13 +281,19 @@ function double(current){
                 //         $('.card').fadeOut();
                 //         $('#playSpace').html('<p id="LoseText">Sorry, you have angered the great Cthulhu!</p><img src="Monsters/cthulhu/cthulhu2.jpg">');
                 //     }, 2000)
-                timer-=60;
+                timer-=20;
                 setTimeout(function(){
                     $(screwtimeout).attr('src', 'Cardback2.jpg');
                     $(asycncausesissues).attr('src', 'Cardback2.jpg');
                 }, 1500)
                 // $(current).fadeIn(1000);
                 // $(lastClicked).fadeIn(1000);
+            }
+            else{
+                setTimeout(function(){
+                    $(screwtimeout).attr('src', 'Blank.png');
+                    $(asycncausesissues).attr('src', 'Blank.png');
+                }, 1500)
             }
             screwtimeout=lastClicked;
             asycncausesissues=current;
@@ -282,7 +303,18 @@ function double(current){
 }
 
 function timerUpdate(){
-    $('#timer').text(timer);
+    // $('#timer').text(timer);
+    for(;letter*interval>timer;letter--){
+        let element=".timershow"+(letterstotal-letter);
+        let elementhide=".timerhide"+(letterstotal-letter);
+        $(elementhide).fadeOut(1000);
+        $(element).fadeIn(1000);
+
+        //additional things to impliment. Time the fade in of each letter so it almost feels like they fade in one after another
+    }
+    //impliment a way to have letters fade out if timer is higher again, maybe with some buffer room, like two letters or so
+    //add in another string to the timer to see if you could get it more accurate?
+    //Also, formulas for calculating interval currently only works really well with divisors of the timer. There may be a way to have it work with a better range of nums using some sort of rounding?
 }
 
 setInterval(() => {
@@ -290,7 +322,8 @@ setInterval(() => {
         timer--;
         timerUpdate();
     console.log(timer);
-    if(timer<0){
+    if(timer<0&&firstclicked){
+        firstclicked=false;
         $('.card').addClass('Back'); 
         if(firstclicked){
             firstclicked=false;

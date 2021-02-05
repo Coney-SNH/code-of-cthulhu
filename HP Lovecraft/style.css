@@ -44,23 +44,44 @@ body {
     flex-basis: 80%;
 }
 
+#gamename {
+    color: #97BDF0;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
+}
+
 div p {
     border-bottom: 2px solid #696969;
     padding: 2px;
     margin: 2px;
     color:#f4d8b3;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
 }
 #score {
-    color: #8c1d16;
+    color: #A7231A;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
     /* color: #4d6d8a; */
+}
+
+.starthide {
+    color: #97BDF0;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
 }
 
 #scoreboard{
     text-align: center;
-    font-size: 24pt;
+    font-size: 30pt;
     padding: 10px 40px 10px 10px;
-    flex-basis: 20%;
+    flex-basis: 35%;
 }
+
+#gamescript {
+    color: #E4E4E4;
+}
+
 
 .card{
     /* border: 4px transparent whitesmoke; */
@@ -208,7 +229,27 @@ div p {
 
 #LoseText{
     margin-top: 100px;
-    color: red;
+    margin-left: 132px;
+    color: #A7231A;
     font-size: 36pt;
     text-align: center;
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black; */
 }
+.Score{
+    margin-bottom: 10px;
+}
+.starthide{
+    display: none;
+}
+.timer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* .endhide{
+    color: red;
+}
+.starthide{
+    color: aqua;
+} */
