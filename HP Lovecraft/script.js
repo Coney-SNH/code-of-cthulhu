@@ -46,13 +46,13 @@ function addListeners(){
 
 
 let score=0;
-let timer=20000;
+let timer=1200;
 
 let justClicked;
 let firstclicked=false;
 
 function Shuffle(){
-    timer=200000;
+    timer=1200;
     firstclicked=false;
     lastClicked=null;
     score=0;
@@ -233,7 +233,7 @@ function double(current){
                 // console.log("they are the same");
                 score++;
                 ScoreUpdate();
-                timer++;
+                timer+=30;
                 // TimerUpdate();
                 // $(current).fadeOut(1000);
                 // $(lastClicked).fadeOut(1000);
@@ -265,6 +265,7 @@ function double(current){
                 //         $('.card').fadeOut();
                 //         $('#playSpace').html('<p id="LoseText">Sorry, you have angered the great Cthulhu!</p><img src="Monsters/cthulhu/cthulhu2.jpg">');
                 //     }, 2000)
+                timer-=60;
                 setTimeout(function(){
                     $(screwtimeout).attr('src', 'Cardback2.jpg');
                     $(asycncausesissues).attr('src', 'Cardback2.jpg');
@@ -279,9 +280,14 @@ function double(current){
     }
 }
 
+function timerUpdate(){
+    $('#timer').text(timer);
+}
+
 setInterval(() => {
     if(firstclicked&&timer>-1)
         timer--;
+        timerUpdate();
     console.log(timer);
     if(timer===0){
         $('.card').addClass('Back'); 
@@ -292,4 +298,4 @@ setInterval(() => {
     }
     setTimeout(() => {
     }, 500);
-}, 500); 
+}, 1000); 
