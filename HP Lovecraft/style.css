@@ -56,7 +56,7 @@ div p {
 }
 
 #scoreboard{
-    text-align: right;
+    text-align: center;
     font-size: 24pt;
     padding: 10px 40px 10px 10px;
     flex-basis: 20%;
@@ -211,4 +211,15 @@ div p {
     color: red;
     font-size: 36pt;
     text-align: center;
+}
+.Score{
+    margin-bottom: 10px;
+}
+.hiddentext{
+    display: none;
+}
+.timer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

@@ -46,13 +46,19 @@ function addListeners(){
 
 
 let score=0;
-let timer=20000;
+let timer=1200;
+let letterstotal=50;
+let letter=letterstotal;
 
 let justClicked;
 let firstclicked=false;
+let interval=Math.floor(timer/letter);
 
 function Shuffle(){
-    timer=200000;
+    letter=letterstotal;
+    timer=1200;
+    interval=Math.floor(timer/letterstotal)
+    $('.hiddentext').hide();
     firstclicked=false;
     lastClicked=null;
     score=0;
@@ -233,11 +239,12 @@ function double(current){
                 // console.log("they are the same");
                 score++;
                 ScoreUpdate();
-                timer++;
+                timer+=30;
                 // TimerUpdate();
                 // $(current).fadeOut(1000);
                 // $(lastClicked).fadeOut(1000);
                 if(score>11){
+                    firstclicked=false;
                     $('.card').fadeOut();
                     $('#playSpace').html('<p id="WinText">And into the eternal slumber he shall remain.</p>');
                 }
@@ -265,6 +272,7 @@ function double(current){
                 //         $('.card').fadeOut();
                 //         $('#playSpace').html('<p id="LoseText">Sorry, you have angered the great Cthulhu!</p><img src="Monsters/cthulhu/cthulhu2.jpg">');
                 //     }, 2000)
+                timer-=20;
                 setTimeout(function(){
                     $(screwtimeout).attr('src', 'Cardback2.jpg');
                     $(asycncausesissues).attr('src', 'Cardback2.jpg');
@@ -279,11 +287,25 @@ function double(current){
     }
 }
 
+function timerUpdate(){
+    $('#timer').text(timer);
+    for(;letter*interval>timer;letter--){
+        let element=".timer"+(letterstotal-letter);
+        $(element).show();
+        //additional things to impliment. Time the fade in of each letter so it almost feels like they fade in one after another
+    }
+    //impliment a way to have letters fade out if timer is higher again, maybe with some buffer room, like two letters or so
+    //add in another string to the timer to see if you could get it more accurate?
+    //Also, formulas for calculating interval currently only works really well with divisors of the timer. There may be a way to have it work with a better range of nums using some sort of rounding?
+}
+
 setInterval(() => {
     if(firstclicked&&timer>-1)
         timer--;
+        timerUpdate();
     console.log(timer);
-    if(timer===0){
+    if(timer<0&&firstclicked){
+        firstclicked=false;
         $('.card').addClass('Back'); 
         $('img').attr('src','Monsters/cthulhu/Cthulhu.jpg');
         setTimeout(() => {
