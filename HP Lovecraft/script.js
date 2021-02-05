@@ -46,13 +46,27 @@ function addListeners(){
 
 
 let score=0;
+<<<<<<< Updated upstream
 let timer=20000;
+=======
+let timer=300;
+let letterstotal=50;
+let letter=letterstotal;
+>>>>>>> Stashed changes
 
 let justClicked;
 let firstclicked=false;
+let interval=Math.floor(timer/letter);
 
 function Shuffle(){
+<<<<<<< Updated upstream
     timer=200000;
+=======
+    letter=letterstotal;
+    timer=300;
+    interval=Math.floor(timer/letterstotal)
+    $('.hiddentext').hide();
+>>>>>>> Stashed changes
     firstclicked=false;
     lastClicked=null;
     score=0;
@@ -279,6 +293,18 @@ function double(current){
     }
 }
 
+<<<<<<< Updated upstream
+=======
+function timerUpdate(){
+    $('#timer').text(timer);
+    if(letter*interval>timer){
+        let element=".timer"+(letterstotal-letter);
+        letter--;
+        $(element).show();
+    }
+}
+
+>>>>>>> Stashed changes
 setInterval(() => {
     if(firstclicked&&timer>-1)
         timer--;

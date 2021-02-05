@@ -212,3 +212,17 @@ div p {
     font-size: 36pt;
     text-align: center;
 }
+<<<<<<< Updated upstream
+=======
+.Score{
+    margin-bottom: 10px;
+}
+.hiddentext{
+    display: none;
+}
+.timer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+>>>>>>> Stashed changes
